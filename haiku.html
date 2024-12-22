@@ -13,7 +13,7 @@
   }
 
   html {
-    scroll-snap-type: inline mandatory;
+    overflow: hidden;  /* Hide extra whitespace at the bottom created by horizontal scrollbars on mobile */
   }
 
   body {
@@ -23,12 +23,13 @@
     color: black;
     background: white;
     overscroll-behavior: none;
+    overflow: auto hidden;
+    scroll-snap-type: inline mandatory;
   }
 
   .page {
-    inline-size: 100vw;
-    flex-shrink: 0;
-    overflow-y: scroll;
+    flex: 0 0 100vw;
+    overflow: hidden scroll;
     scroll-snap-align: start;
     padding: max(16px, 4vw);
   }
