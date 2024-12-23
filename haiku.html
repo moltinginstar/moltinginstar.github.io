@@ -13,7 +13,7 @@
   }
 
   html {
-    overflow: hidden;  /* Hide extra whitespace at the bottom created by horizontal scrollbars on mobile */
+    overflow: hidden; /* Hide extra whitespace at the bottom created by horizontal scrollbars on mobile */
   }
 
   body {
@@ -32,14 +32,23 @@
     overflow: hidden scroll;
     scroll-snap-align: start;
     padding: max(16px, 4vw);
+    position: relative;
+  }
+
+  .page-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    z-index: -1;
   }
 
   .haiku {
     display: flex;
     justify-content: space-between;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
   }
 
   .haiku [lang="jp"] {
@@ -96,10 +105,14 @@
   <p>anyway, here are some of my favorites. scroll to the right to see them.</p>
 </div>
 
-<div
-  class="page haiku"
-  style="background-image: url('./images/dandelions.png')"
->
+<div class="page haiku">
+  <img
+    class="page-background"
+    loading="lazy"
+    src="./images/dandelions.png"
+    alt="dandelions"
+  />
+
   <p lang="en">
     while the sun shines, the
     <br />
@@ -110,7 +123,14 @@
   <p lang="jp">晴れながら蒲公英散らむ小鵲。</p>
 </div>
 
-<div class="page haiku" style="background-image: url('./images/swifts.png')">
+<div class="page haiku">
+  <img
+    class="page-background"
+    loading="lazy"
+    src="./images/swifts.png"
+    alt="swifts"
+  />
+
   <p lang="en">
     O Mount Ararat—
     <br />
@@ -121,7 +141,14 @@
   <p lang="jp">アララトや軽き翼のアマツバメ。</p>
 </div>
 
-<div class="page haiku" style="background-image: url('./images/apricots.png')">
+<div class="page haiku">
+  <img
+    class="page-background"
+    loading="lazy"
+    src="./images/apricots.png"
+    alt="apricots"
+  />
+
   <p lang="en">
     dazzling white on green!
     <br />
@@ -132,7 +159,14 @@
   <p lang="jp">白き木や杏花咲きけり雨の音。</p>
 </div>
 
-<div class="page haiku" style="background-image: url('./images/canopies.png')">
+<div class="page haiku">
+  <img
+    class="page-background"
+    loading="lazy"
+    src="./images/canopies.png"
+    alt="canopies"
+  />
+
   <p lang="en">
     verdant canopies—
     <br />
@@ -143,7 +177,14 @@
   <p lang="jp">春なれど働く気せずカタルシス。</p>
 </div>
 
-<div class="page haiku" style="background-image: url('./images/sea.png')">
+<div class="page haiku">
+  <img
+    class="page-background"
+    loading="lazy"
+    src="./images/sea.png"
+    alt="sea"
+  />
+
   <p lang="en">
     mountains everywhere—
     <br />
@@ -154,7 +195,14 @@
   <p lang="jp">山々やこの世を囲む荒海へ。</p>
 </div>
 
-<div class="page haiku" style="background-image: url('./images/morn.png')">
+<div class="page haiku">
+  <img
+    class="page-background"
+    loading="lazy"
+    src="./images/morn.png"
+    alt="morn"
+  />
+
   <p lang="en">
     in the haze of morn,
     <br />
@@ -165,7 +213,14 @@
   <p lang="jp">朧なるアララトへ飛ぶツバメかな。</p>
 </div>
 
-<div class="page haiku" style="background-image: url('./images/sunshine.png')">
+<div class="page haiku">
+  <img
+    class="page-background"
+    loading="lazy"
+    src="./images/sunshine.png"
+    alt="sunshine"
+  />
+
   <p lang="en">
     ah, Mount Ararat
     <br />
@@ -176,7 +231,14 @@
   <p lang="jp">アララトや頬を乾かす日の光。</p>
 </div>
 
-<div class="page haiku" style="background-image: url('./images/stars.png')">
+<div class="page haiku">
+  <img
+    class="page-background"
+    loading="lazy"
+    src="./images/stars.png"
+    alt="stars"
+  />
+
   <p lang="en">
     is the azure sky
     <br />
@@ -187,7 +249,14 @@
   <p lang="jp">青空は輝く星の墓場かな。</p>
 </div>
 
-<div class="page haiku" style="background-image: url('./images/cat.png')">
+<div class="page haiku">
+  <img
+    class="page-background"
+    loading="lazy"
+    src="./images/cat.png"
+    alt="cat"
+  />
+
   <p lang="en">
     in the light of day
     <br />
@@ -198,10 +267,14 @@
   <p lang="jp">日の本に月の目つきや鳴く子猫。</p>
 </div>
 
-<div
-  class="page haiku"
-  style="background-image: url('./images/kingfisher.png')"
->
+<div class="page haiku">
+  <img
+    class="page-background"
+    loading="lazy"
+    src="./images/kingfisher.png"
+    alt="kingfisher"
+  />
+
   <p lang="en">
     oh, the kingfisher—
     <br />
@@ -240,10 +313,14 @@
   <p>regardless, I hope you enjoy them. keep scrolling to see them.</p>
 </div>
 
-<div
-  class="page haiku"
-  style="background-image: url('./images/flowerwall.png')"
->
+<div class="page haiku">
+  <img
+    class="page-background"
+    loading="lazy"
+    src="./images/flowerwall.png"
+    alt="flowerwall"
+  />
+
   <p lang="en">
     a cat hides her face
     <br />
@@ -254,7 +331,14 @@
   <p lang="jp">花に猫顔隠れけり風も無し。</p>
 </div>
 
-<div class="page haiku" style="background-image: url('./images/fish.png')">
+<div class="page haiku">
+  <img
+    class="page-background"
+    loading="lazy"
+    src="./images/fish.png"
+    alt="fish"
+  />
+
   <p lang="en">
     last night I dreamt of
     <br />
@@ -265,10 +349,14 @@
   <p lang="jp">夢を見き清き水にて遊ぶ魚。</p>
 </div>
 
-<div
-  class="page haiku"
-  style="background-image: url('./images/mulberries.png')"
->
+<div class="page haiku">
+  <img
+    class="page-background"
+    loading="lazy"
+    src="./images/mulberries.png"
+    alt="mulberries"
+  />
+
   <p lang="en">
     amidst spring showers,
     <br />
@@ -279,10 +367,14 @@
   <p lang="jp">五月雨に揺るる桑の木のうねりかな。</p>
 </div>
 
-<div
-  class="page haiku"
-  style="background-image: url('./images/rainstorms.png')"
->
+<div class="page haiku">
+  <img
+    class="page-background"
+    loading="lazy"
+    src="./images/rainstorms.png"
+    alt="rainstorms"
+  />
+
   <p lang="en">
     a hot summer’s day;
     <br />
@@ -293,7 +385,14 @@
   <p lang="jp">夏の日や五月雨もう待ち遠し。</p>
 </div>
 
-<div class="page haiku" style="background-image: url('./images/desk.png')">
+<div class="page haiku">
+  <img
+    class="page-background"
+    loading="lazy"
+    src="./images/desk.png"
+    alt="desk"
+  />
+
   <p lang="en">
     the tiny flowers
     <br />
