@@ -37,6 +37,11 @@
     color: dimgray;
   }
 
+  .decoration {
+    pointer-events: none;
+    user-select: none;
+  }
+
   @media (prefers-color-scheme: dark) {
     body {
       color: white;
@@ -67,7 +72,9 @@
 </p>
 
 <p>
-  My current stack is <code>Python</code>/<code>PyTorch</code>/<code>Pandas</code>
+  My current stack is <code>Python</code>/<code>PyTorch</code>/<code
+    >Pandas</code
+  >
   and <code>TypeScript</code>/<code>Vue</code>/<code>Nest.js</code>. In the
   past, I’ve dabbled in mobile development, Haskell programming, conlanging,
   graphic design, and creative writing.
@@ -128,21 +135,19 @@
 
 <picture>
   <source
-    srcset="
-      https://github.com/moltinginstar/moltinginstar/assets/62135712/c0f9aedb-8c54-46ed-9ff5-7a61a67bfeaf
-    "
+    srcset="/images/stained_glass.dark.png"
     media="(prefers-color-scheme: dark)"
   />
 
   <source
-    srcset="
-      https://github.com/moltinginstar/moltinginstar/assets/62135712/f5a9c683-4a6e-45ac-89d4-994bbbebe192
-    "
+    srcset="/images/stained_glass.light.png"
     media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
   />
 
   <img
-    src="https://github.com/moltinginstar/moltinginstar/assets/62135712/f5a9c683-4a6e-45ac-89d4-994bbbebe192"
+    class="decoration"
+    srcset="/images/stained_glass.light.png"
     width="100%"
+    alt=""
   />
 </picture>
