@@ -43,15 +43,15 @@
         flex: 0 0 100vw;
         overflow: hidden scroll;
         scroll-snap-align: start;
-        padding: max(16px, 4vw);
+        padding: clamp(1rem, 4vw, 4rem);
         position: relative;
         box-sizing: border-box;
       }
 
       .page-background {
         position: absolute;
-        top: 0;
-        left: 0;
+        inset-block-start: 0;
+        inset-inline-start: 0;
         inline-size: 100%;
         block-size: 100%;
         object-fit: cover;
@@ -128,7 +128,7 @@
       <img
         class="page-background"
         loading="lazy"
-        src="./images/dandelions.png"
+        src="/images/dandelions.png"
         alt="dandelions"
       />
 
@@ -146,7 +146,7 @@
       <img
         class="page-background"
         loading="lazy"
-        src="./images/swifts.png"
+        src="/images/swifts.png"
         alt="swifts"
       />
 
@@ -164,7 +164,7 @@
       <img
         class="page-background"
         loading="lazy"
-        src="./images/apricots.png"
+        src="/images/apricots.png"
         alt="apricots"
       />
 
@@ -182,7 +182,7 @@
       <img
         class="page-background"
         loading="lazy"
-        src="./images/canopies.png"
+        src="/images/canopies.png"
         alt="canopies"
       />
 
@@ -200,7 +200,7 @@
       <img
         class="page-background"
         loading="lazy"
-        src="./images/sea.png"
+        src="/images/sea.png"
         alt="sea"
       />
 
@@ -218,7 +218,7 @@
       <img
         class="page-background"
         loading="lazy"
-        src="./images/morn.png"
+        src="/images/morn.png"
         alt="morn"
       />
 
@@ -236,7 +236,7 @@
       <img
         class="page-background"
         loading="lazy"
-        src="./images/sunshine.png"
+        src="/images/sunshine.png"
         alt="sunshine"
       />
 
@@ -254,7 +254,7 @@
       <img
         class="page-background"
         loading="lazy"
-        src="./images/stars.png"
+        src="/images/stars.png"
         alt="stars"
       />
 
@@ -272,7 +272,7 @@
       <img
         class="page-background"
         loading="lazy"
-        src="./images/cat.png"
+        src="/images/cat.png"
         alt="cat"
       />
 
@@ -290,7 +290,7 @@
       <img
         class="page-background"
         loading="lazy"
-        src="./images/kingfisher.png"
+        src="/images/kingfisher.png"
         alt="kingfisher"
       />
 
@@ -337,7 +337,7 @@
       <img
         class="page-background"
         loading="lazy"
-        src="./images/flowerwall.png"
+        src="/images/flowerwall.png"
         alt="flowerwall"
       />
 
@@ -355,7 +355,7 @@
       <img
         class="page-background"
         loading="lazy"
-        src="./images/fish.png"
+        src="/images/fish.png"
         alt="fish"
       />
 
@@ -373,7 +373,7 @@
       <img
         class="page-background"
         loading="lazy"
-        src="./images/mulberries.png"
+        src="/images/mulberries.png"
         alt="mulberries"
       />
 
@@ -391,7 +391,7 @@
       <img
         class="page-background"
         loading="lazy"
-        src="./images/rainstorms.png"
+        src="/images/rainstorms.png"
         alt="rainstorms"
       />
 
@@ -409,7 +409,7 @@
       <img
         class="page-background"
         loading="lazy"
-        src="./images/desk.png"
+        src="/images/desk.png"
         alt="desk"
       />
 

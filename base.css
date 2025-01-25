@@ -3,11 +3,13 @@
   --color-text-light: black;
   --color-text-muted-light: dimgray;
   --color-accent-light: blue;
+  --color-surface-light: #f6f6f6;
 
   --color-background-dark: black;
   --color-text-dark: white;
   --color-text-muted-dark: lightgray;
   --color-accent-dark: cyan;
+  --color-surface-dark: #333333;
 
   --font-body: "Poppins", sans-serif;
   --font-mono: "Iosevka SS14 Web", monospace;
@@ -19,6 +21,7 @@
     --color-text: var(--color-text-light);
     --color-text-muted: var(--color-text-muted-light);
     --color-accent: var(--color-accent-light);
+    --color-surface: var(--color-surface-light);
   }
 }
 
@@ -28,6 +31,7 @@
     --color-text: var(--color-text-dark);
     --color-text-muted: var(--color-text-muted-dark);
     --color-accent: var(--color-accent-dark);
+    --color-surface: var(--color-surface-dark);
   }
 }
 
@@ -39,6 +43,7 @@ body {
   font-family: var(--font-body);
   color: var(--color-text);
   background-color: var(--color-background);
+  line-height: 1.5;
 }
 
 a {

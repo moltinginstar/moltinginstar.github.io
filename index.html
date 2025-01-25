@@ -21,9 +21,34 @@
       body {
         max-inline-size: 80ch;
         margin: 0 auto;
-        padding: 8vw 6vw;
+        padding: 8vh 6vw;
         display: flex;
         flex-direction: column;
+      }
+
+      nav {
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        gap: 0.25rem clamp(1rem, 4vw, 3rem);
+        margin-block-end: 8vh;
+      }
+
+      @media screen and (max-width: 1024px) {
+        nav {
+          justify-content: center;
+        }
+      }
+
+      nav > a {
+        text-transform: lowercase;
+        text-decoration: none;
+        color: var(--color-text-muted);
+      }
+
+      nav > a:hover {
+        text-decoration: underline;
+        color: inherit;
       }
 
       main {
@@ -47,13 +72,44 @@
         user-select: none;
       }
     </style>
+
+    <style>
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+          transform: translateY(1rem);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      :root {
+        --animation-delay: 50ms;
+        --animation-duration: 500ms;
+      }
+
+      nav > a,
+      main > *,
+      footer {
+        animation: fade-in var(--animation-duration) ease-out both
+          calc(var(--i) * var(--animation-delay));
+      }
+    </style>
   </head>
 
   <body>
-    <main>
-      <h1 class="greeting">Hello, I’m Sam.</h1>
+    <nav>
+      <a style="--i: 0" href="https://github.com/moltinginstar">GitHub</a>
+      <a style="--i: 1" href="haiku.html">Haiku</a>
+    </nav>
 
-      <blockquote>
+    <main>
+      <h1 style="--i: 2" class="greeting">Hello, I’m Sam.</h1>
+
+      <blockquote style="--i: 3">
         <p>
           Being civilized means, among other things, stopping your immediate
           response to a situation, and thinking whether it is or is not the
@@ -66,12 +122,12 @@
         </p>
       </blockquote>
 
-      <p>
+      <p style="--i: 4">
         I build things with care and precision when I can, get creative when
         precision gets in the way.
       </p>
 
-      <p>
+      <p style="--i: 5">
         My current stack is <code>Python</code>/<code>PyTorch</code>/<code
           >Pandas</code
         >
@@ -80,7 +136,7 @@
         conlanging, graphic design, and creative writing.
       </p>
 
-      <p>
+      <p style="--i: 6">
         Most of my contributions are in private repos, but if you’ve seen
         something that caught your eye,
         <a href="mailto:hello@moltinginstar.com" target="_blank"
@@ -88,7 +144,7 @@
         >!
       </p>
 
-      <details>
+      <details style="--i: 7">
         <summary>🎵 My current jam</summary>
         <ul>
           <li>
@@ -126,7 +182,7 @@
         </ul>
       </details>
 
-      <details>
+      <details style="--i: 8">
         <summary>📚 Recent reads</summary>
         <ul>
           <li><i>Dawn</i> by Octavia Butler</li>
@@ -140,17 +196,15 @@
         </ul>
       </details>
 
-      <details>
+      <details style="--i: 9">
         <summary>🏳️ Favorite flags</summary>
         <ul>
           🇺🇸🇸🇨🇲🇺🇱🇨🇵🇼🇧🇩🇰🇬🇭🇰🇧🇹🇧🇦🇦🇬🇵🇬🇰🇮🇦🇱🇬🇱🇵🇦🇦🇶
         </ul>
       </details>
-
-      <p>I write haiku sometimes. <a href="haiku.html">Here’s a collection</a>.</p>
     </main>
 
-    <footer>
+    <footer style="--i: 10">
       <picture>
         <source
           srcset="/images/stained_glass.dark.png"
