@@ -1,0 +1,60 @@
+:root {
+  --color-background-light: white;
+  --color-text-light: black;
+  --color-text-muted-light: dimgray;
+  --color-accent-light: blue;
+
+  --color-background-dark: black;
+  --color-text-dark: white;
+  --color-text-muted-dark: lightgray;
+  --color-accent-dark: cyan;
+
+  --font-body: "Poppins", sans-serif;
+  --font-mono: "Iosevka SS14 Web", monospace;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-background: var(--color-background-light);
+    --color-text: var(--color-text-light);
+    --color-text-muted: var(--color-text-muted-light);
+    --color-accent: var(--color-accent-light);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--color-background-dark);
+    --color-text: var(--color-text-dark);
+    --color-text-muted: var(--color-text-muted-dark);
+    --color-accent: var(--color-accent-dark);
+  }
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+a {
+  color: var(--color-accent);
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: var(--font-mono);
+  font-stretch: expanded;
+}
+
+blockquote {
+  padding-inline: 1em;
+  border-inline-start: 4px solid;
+  color: var(--color-text-muted);
+}
