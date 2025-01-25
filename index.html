@@ -1,151 +1,174 @@
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  rel="stylesheet"
-  href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=block"
-/>
-<link rel="stylesheet" href="/fonts/IosevkaSS14-32.3.0/IosevkaSS14.css" />
+    <title>moltinginstar / home</title>
 
-<title>moltinginstar / home</title>
-
-<style>
-  @import "/base.css";
-
-  body {
-    max-inline-size: 80ch;
-    margin: 0 auto;
-    padding: 8vw 6vw;
-    display: flex;
-    flex-direction: column;
-  }
-
-  main {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  footer {
-    margin-block-start: 1rem;
-  }
-
-  .greeting {
-    font-size: 1.2rem;
-    font-weight: 400;
-  }
-
-  .decoration {
-    pointer-events: none;
-    -webkit-user-select: none;
-    user-select: none;
-  }
-</style>
-
-<main>
-  <h1 class="greeting">Hello, I’m Sam.</h1>
-
-  <blockquote>
-    <p>
-      Being civilized means, among other things, stopping your immediate
-      response to a situation, and thinking whether it is or is not the
-      appropriate thing to do.
-    </p>
-
-    <p>
-      ―&nbsp;Richard Hamming,
-      <i><cite>The Art of Doing Science and Engineering</cite></i>
-    </p>
-  </blockquote>
-
-  <p>
-    I build things with care and precision when I can, get creative when
-    precision gets in the way.
-  </p>
-
-  <p>
-    My current stack is <code>Python</code>/<code>PyTorch</code>/<code
-      >Pandas</code
-    >
-    and <code>TypeScript</code>/<code>Vue</code>/<code>Nest.js</code>. In the
-    past, I’ve dabbled in mobile development, Haskell programming, conlanging,
-    graphic design, and creative writing.
-  </p>
-
-  <p>
-    Most of my contributions are in private repos, but if you’ve seen something
-    that caught your eye,
-    <a href="mailto:hello@moltinginstar.com" target="_blank">drop me a line</a>!
-  </p>
-
-  <details>
-    <summary>🎵 My current jam</summary>
-    <ul>
-      <li>
-        <a href="https://www.youtube.com/watch?v=exOi_zsOHwM" target="_blank">
-          <i>Bokura no</i>
-        </a>
-      </li>
-      <li>
-        <a href="https://www.youtube.com/watch?v=AgHaGrZkkv4" target="_blank">
-          <i>People Are Strange</i>
-        </a>
-      </li>
-      <li>
-        <a href="https://www.youtube.com/watch?v=gSsCZJM6OG0" target="_blank">
-          <i>Serendipity</i>
-        </a>
-      </li>
-      <li>
-        <a href="https://www.youtube.com/watch?v=3uLzdTndP34" target="_blank">
-          <i>Unk’àtân</i>
-        </a>
-      </li>
-    </ul>
-  </details>
-
-  <details>
-    <summary>📚 Recent reads</summary>
-    <ul>
-      <li><i>Dawn</i> by Octavia Butler</li>
-      <li>
-        <i title="When We Cease to Understand the World">Un verdor terrible</i>
-        by Benjamín Labatut
-      </li>
-      <li>The <i>Bhagavad Gītā</i></li>
-    </ul>
-  </details>
-
-  <details>
-    <summary>🏳️ Favorite flags</summary>
-    <ul>
-      🇺🇸🇸🇨🇲🇺🇱🇨🇵🇼🇧🇩🇰🇬🇭🇰🇧🇹🇧🇦🇦🇬🇵🇬🇰🇮🇦🇱🇬🇱🇵🇦🇦🇶
-    </ul>
-  </details>
-
-  <p>I write haiku sometimes. <a href="haiku.html">Here’s a collection</a>.</p>
-</main>
-
-<footer>
-  <picture>
-    <source
-      srcset="/images/stained_glass.dark.png"
-      media="(prefers-color-scheme: dark)"
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=block"
     />
+    <link rel="stylesheet" href="/fonts/IosevkaSS14-32.3.0/IosevkaSS14.css" />
 
-    <source
-      srcset="/images/stained_glass.light.png"
-      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-    />
+    <link rel="stylesheet" href="/base.css" />
 
-    <img
-      class="decoration"
-      srcset="/images/stained_glass.light.png"
-      width="100%"
-      alt=""
-    />
-  </picture>
-</footer>
+    <style>
+      body {
+        max-inline-size: 80ch;
+        margin: 0 auto;
+        padding: 8vw 6vw;
+        display: flex;
+        flex-direction: column;
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      footer {
+        margin-block-start: 1rem;
+      }
+
+      .greeting {
+        font-size: 1.2rem;
+        font-weight: 400;
+      }
+
+      .decoration {
+        pointer-events: none;
+        -webkit-user-select: none;
+        user-select: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <h1 class="greeting">Hello, I’m Sam.</h1>
+
+      <blockquote>
+        <p>
+          Being civilized means, among other things, stopping your immediate
+          response to a situation, and thinking whether it is or is not the
+          appropriate thing to do.
+        </p>
+
+        <p>
+          ―&nbsp;Richard Hamming,
+          <i><cite>The Art of Doing Science and Engineering</cite></i>
+        </p>
+      </blockquote>
+
+      <p>
+        I build things with care and precision when I can, get creative when
+        precision gets in the way.
+      </p>
+
+      <p>
+        My current stack is <code>Python</code>/<code>PyTorch</code>/<code
+          >Pandas</code
+        >
+        and <code>TypeScript</code>/<code>Vue</code>/<code>Nest.js</code>. In
+        the past, I’ve dabbled in mobile development, Haskell programming,
+        conlanging, graphic design, and creative writing.
+      </p>
+
+      <p>
+        Most of my contributions are in private repos, but if you’ve seen
+        something that caught your eye,
+        <a href="mailto:hello@moltinginstar.com" target="_blank"
+          >drop me a line</a
+        >!
+      </p>
+
+      <details>
+        <summary>🎵 My current jam</summary>
+        <ul>
+          <li>
+            <a
+              href="https://www.youtube.com/watch?v=exOi_zsOHwM"
+              target="_blank"
+            >
+              <i>Bokura no</i>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.youtube.com/watch?v=AgHaGrZkkv4"
+              target="_blank"
+            >
+              <i>People Are Strange</i>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.youtube.com/watch?v=gSsCZJM6OG0"
+              target="_blank"
+            >
+              <i>Serendipity</i>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.youtube.com/watch?v=3uLzdTndP34"
+              target="_blank"
+            >
+              <i>Unk’àtân</i>
+            </a>
+          </li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>📚 Recent reads</summary>
+        <ul>
+          <li><i>Dawn</i> by Octavia Butler</li>
+          <li>
+            <i title="When We Cease to Understand the World"
+              >Un verdor terrible</i
+            >
+            by Benjamín Labatut
+          </li>
+          <li>The <i>Bhagavad Gītā</i></li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>🏳️ Favorite flags</summary>
+        <ul>
+          🇺🇸🇸🇨🇲🇺🇱🇨🇵🇼🇧🇩🇰🇬🇭🇰🇧🇹🇧🇦🇦🇬🇵🇬🇰🇮🇦🇱🇬🇱🇵🇦🇦🇶
+        </ul>
+      </details>
+
+      <p>I write haiku sometimes. <a href="haiku.html">Here’s a collection</a>.</p>
+    </main>
+
+    <footer>
+      <picture>
+        <source
+          srcset="/images/stained_glass.dark.png"
+          media="(prefers-color-scheme: dark)"
+        />
+
+        <source
+          srcset="/images/stained_glass.light.png"
+          media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+        />
+
+        <img
+          class="decoration"
+          srcset="/images/stained_glass.light.png"
+          width="100%"
+          alt=""
+        />
+      </picture>
+    </footer>
+  </body>
+</html>
