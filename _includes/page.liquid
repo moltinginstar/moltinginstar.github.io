@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/public/favicon.ico">
+
+    <title>{{ title }}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=block"
+    >
+    <link rel="stylesheet" href="/fonts/IosevkaSS14-32.3.0/IosevkaSS14.css">
+
+    <link rel="stylesheet" href="/styles/base.css">
+
+    {% block head %}
+    {% endblock %}
+  </head>
+
+  <body>
+    {% block body -%}
+    {%- endblock %}
+  </body>
+</html>

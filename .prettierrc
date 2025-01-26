@@ -1,4 +1,7 @@
 {
+  "plugins": ["@shopify/prettier-plugin-liquid"],
+  "liquidSingleQuote": false,
+  "embeddedSingleQuote": false,
   "quoteProps": "as-needed",
   "singleQuote": false,
   "printWidth": 80,

@@ -1,0 +1,190 @@
+---
+title: moltinginstar / home
+---
+{% layout "page.liquid" %}
+
+{% block head %}
+<style>
+  body {
+    max-inline-size: 80ch;
+    margin: 0 auto;
+    padding: 8vh 6vw;
+    display: flex;
+    flex-direction: column;
+  }
+
+  nav {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 0.25rem clamp(1rem, 4vw, 3rem);
+    margin-block-end: 8vh;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  @media screen and (max-width: 1024px) {
+    nav {
+      justify-content: center;
+    }
+  }
+
+  nav > a {
+    text-transform: lowercase;
+    text-decoration: none;
+    color: var(--color-text-muted);
+  }
+
+  nav > a:hover {
+    text-decoration: underline;
+    color: inherit;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  footer {
+    margin-block-start: 1rem;
+  }
+
+  .greeting {
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+
+  .decoration {
+    pointer-events: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+</style>
+
+<link rel="stylesheet" href="/styles/animate.css">
+{% endblock %}
+
+{% block body %}
+<nav>
+  <a class="fade-in" style="--i: 0" href="https://github.com/moltinginstar"
+    >GitHub</a
+  >
+  <a class="fade-in" style="--i: 1" href="/haiku">Haiku</a>
+</nav>
+
+<main>
+  <h1 class="fade-in greeting" style="--i: 2">Hello, I’m Sam.</h1>
+
+  <blockquote class="fade-in" style="--i: 3">
+    <p>
+      Being civilized means, among other things, stopping your immediate
+      response to a situation, and thinking whether it is or is not the
+      appropriate thing to do.
+    </p>
+
+    <p>
+      ―&nbsp;Richard Hamming,
+      <i><cite>The Art of Doing Science and Engineering</cite></i>
+    </p>
+  </blockquote>
+
+  <p class="fade-in" style="--i: 4">
+    I build things with care and precision when I can, get creative when
+    precision gets in the way.
+  </p>
+
+  <p class="fade-in" style="--i: 5">
+    My current stack is <code>Python</code>/<code>PyTorch</code>/<code
+      >Pandas</code
+    >
+    and <code>TypeScript</code>/<code>Vue</code>/<code>Nest.js</code>. In the
+    past, I’ve dabbled in mobile development, Haskell programming, conlanging,
+    graphic design, and creative writing.
+  </p>
+
+  <p class="fade-in" style="--i: 6">
+    Most of my contributions are in private repos, but if you’ve seen something
+    that caught your eye,
+    <a href="mailto:hello@moltinginstar.com" target="_blank">drop me a line</a>!
+  </p>
+
+  <details class="fade-in" style="--i: 7">
+    <summary>🎵 My current jam</summary>
+    <ul>
+      <li>
+        <a
+          href="https://www.youtube.com/watch?v=exOi_zsOHwM"
+          target="_blank"
+        >
+          <i>Bokura no</i>
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://www.youtube.com/watch?v=AgHaGrZkkv4"
+          target="_blank"
+        >
+          <i>People Are Strange</i>
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://www.youtube.com/watch?v=gSsCZJM6OG0"
+          target="_blank"
+        >
+          <i>Serendipity</i>
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://www.youtube.com/watch?v=3uLzdTndP34"
+          target="_blank"
+        >
+          <i>Unk’àtân</i>
+        </a>
+      </li>
+    </ul>
+  </details>
+
+  <details class="fade-in" style="--i: 8">
+    <summary>📚 Recent reads</summary>
+    <ul>
+      <li><i>Dawn</i> by Octavia Butler</li>
+      <li>
+        <i title="When We Cease to Understand the World">Un verdor terrible</i>
+        by Benjamín Labatut
+      </li>
+      <li>The <i>Bhagavad Gītā</i></li>
+    </ul>
+  </details>
+
+  <details class="fade-in" style="--i: 9">
+    <summary>🏳️ Favorite flags</summary>
+    <ul>
+      🇺🇸🇸🇨🇲🇺🇱🇨🇵🇼🇧🇩🇰🇬🇭🇰🇧🇹🇧🇦🇦🇬🇵🇬🇰🇮🇦🇱🇬🇱🇵🇦🇦🇶
+    </ul>
+  </details>
+</main>
+
+<footer class="fade-in" style="--i: 10">
+  <picture>
+    <source
+      srcset="/images/stained_glass.dark.png"
+      media="(prefers-color-scheme: dark)"
+    >
+
+    <source
+      srcset="/images/stained_glass.light.png"
+      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+    >
+
+    <img
+      class="decoration"
+      srcset="/images/stained_glass.light.png"
+      width="100%"
+      alt=""
+    >
+  </picture>
+</footer>
+{% endblock %}

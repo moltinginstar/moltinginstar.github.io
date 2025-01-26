@@ -1,0 +1,26 @@
+{
+  "name": "moltinginstar.github.io",
+  "description": "My personal website.",
+  "version": "1.0.0",
+  "author": "Sam <moltinginstar@gmail.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "index.js",
+  "type": "module",
+  "packageManager": "pnpm@9.15.4",
+  "lint-staged": {
+    "*": "prettier --write --ignore-unknown"
+  },
+  "scripts": {
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@shopify/prettier-plugin-liquid": "^1.7.0",
+    "highlight.js": "^11.11.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.2",
+    "markdown-it": "^14.1.0",
+    "prettier": "^3.4.2"
+  }
+}

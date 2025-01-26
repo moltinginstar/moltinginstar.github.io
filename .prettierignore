@@ -4,7 +4,4 @@ dist/
 build/
 _site/
 
-.env
-.env.*
-
-.DS_Store
+*.md
