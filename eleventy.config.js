@@ -1,5 +1,6 @@
 import markdownIt from "markdown-it";
 import hljs from "highlight.js";
+// import parser from "node-html-parser";
 
 export default (eleventyConfig) => {
   eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
@@ -41,4 +42,20 @@ export default (eleventyConfig) => {
   };
 
   eleventyConfig.setLibrary("md", md);
+
+  // eleventyConfig.addTransform("animate", async function (content) {
+  //   if ((this.page.outputPath || "").endsWith(".html")) {
+  //     const root = parser.parse(content);
+  //     const elements = root.querySelectorAll(".animate");
+
+  //     for (let i = 0; i < elements.length; i++) {
+  //       const element = elements[i];
+  //       element.setAttribute("style", `--i: ${i}`);
+  //     }
+
+  //     return root.toString();
+  //   }
+
+  //   return content;
+  // });
 };

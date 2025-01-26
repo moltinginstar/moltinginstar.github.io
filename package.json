@@ -12,7 +12,9 @@
     "*": "prettier --write --ignore-unknown"
   },
   "scripts": {
-    "prepare": "husky"
+    "prepare": "husky",
+    "build": "eleventy",
+    "dev": "eleventy --serve"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
