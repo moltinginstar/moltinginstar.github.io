@@ -3,6 +3,7 @@ import markdownIt from "markdown-it";
 import markdownItFootnote from "markdown-it-footnote";
 import hljs from "highlight.js";
 import parser from "node-html-parser";
+import fs from "fs";
 
 export default (eleventyConfig) => {
   eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
@@ -50,6 +51,21 @@ export default (eleventyConfig) => {
   };
 
   eleventyConfig.setLibrary("md", md);
+
+  eleventyConfig.addFilter("bust", (path) => {
+    const url = new URL(path, "https://moltinginstar.com");
+    const relativePath = url.pathname.substring(1);
+
+    try {
+      const fileStats = fs.statSync(relativePath);
+      const fileTimestamp = fileStats.mtime.getTime();
+      url.searchParams.set("v", fileTimestamp);
+    } catch (error) {
+      console.log(`Error busting cache for ${url}: ${error}`);
+    }
+
+    return url.toString().replace(url.origin, "");
+  });
 
   eleventyConfig.addTransform("animate", function (content) {
     if ((this.page.outputPath || "").endsWith(".html")) {

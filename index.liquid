@@ -62,7 +62,7 @@ title: moltinginstar / home
   }
 </style>
 
-<link rel="stylesheet" href="/styles/animate.css">
+<link rel="stylesheet" href="{{ '/styles/animate.css' | url | bust }}">
 {% endblock %}
 
 {% block body %}
@@ -169,18 +169,18 @@ title: moltinginstar / home
 <footer class="animate">
   <picture>
     <source
-      srcset="/images/stained_glass.dark.png"
+      srcset="{{ '/images/stained_glass.dark.png' | url | bust }}"
       media="(prefers-color-scheme: dark)"
     >
 
     <source
-      srcset="/images/stained_glass.light.png"
+      srcset="{{ '/images/stained_glass.light.png' | url | bust }}"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
     >
 
     <img
       class="decoration"
-      srcset="/images/stained_glass.light.png"
+      srcset="{{ '/images/stained_glass.light.png' | url | bust }}"
       width="100%"
       alt=""
     >

@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/x-icon" href="/public/favicon.ico">
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="{{ '/public/favicon.ico' | url | bust }}"
+    >
 
     <title>{{ title }}</title>
 
@@ -13,9 +17,12 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=block"
     >
-    <link rel="stylesheet" href="/fonts/IosevkaSS14-32.3.0/IosevkaSS14.css">
+    <link
+      rel="stylesheet"
+      href="{{ '/fonts/IosevkaSS14-32.3.0/IosevkaSS14.css' | url | bust }}"
+    >
 
-    <link rel="stylesheet" href="/styles/base.css">
+    <link rel="stylesheet" href="{{ '/styles/base.css' | url | bust }}">
 
     {% block head %}
     {% endblock %}
