@@ -1,6 +1,8 @@
+import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import markdownIt from "markdown-it";
+import markdownItFootnote from "markdown-it-footnote";
 import hljs from "highlight.js";
-// import parser from "node-html-parser";
+import parser from "node-html-parser";
 
 export default (eleventyConfig) => {
   eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
@@ -28,7 +30,13 @@ export default (eleventyConfig) => {
         '<pre><code class="hljs">' + md.utils.escapeHtml(str) + "</code></pre>"
       );
     },
-  });
+  }).use(markdownItFootnote);
+
+  md.renderer.rules.footnote_block_open = () =>
+    "<div></div>\n" +
+    '<div class="footnotes">\n' +
+    '<ol class="footnotes-list">\n';
+  md.renderer.rules.footnote_block_close = () => "</ol>\n" + "</div>\n";
 
   const defaultRender =
     md.renderer.rules.link_open ??
@@ -43,19 +51,31 @@ export default (eleventyConfig) => {
 
   eleventyConfig.setLibrary("md", md);
 
-  // eleventyConfig.addTransform("animate", async function (content) {
-  //   if ((this.page.outputPath || "").endsWith(".html")) {
-  //     const root = parser.parse(content);
-  //     const elements = root.querySelectorAll(".animate");
+  eleventyConfig.addTransform("animate", function (content) {
+    if ((this.page.outputPath || "").endsWith(".html")) {
+      const root = parser.parse(content);
+      const elements = root.querySelectorAll(".animate");
 
-  //     for (let i = 0; i < elements.length; i++) {
-  //       const element = elements[i];
-  //       element.setAttribute("style", `--i: ${i}`);
-  //     }
+      for (let i = 0; i < elements.length; i++) {
+        const element = elements[i];
+        let elementStyle = element.getAttribute("style") ?? "";
 
-  //     return root.toString();
-  //   }
+        // Allow per-element overrides
+        if (elementStyle.includes("--i:")) {
+          continue;
+        }
 
-  //   return content;
-  // });
+        if (elementStyle && !elementStyle.trimEnd().endsWith(";")) {
+          elementStyle += "; ";
+        }
+
+        elementStyle += `--i: ${i};`;
+        element.setAttribute("style", elementStyle);
+      }
+
+      return root.toString();
+    }
+
+    return content;
+  });
 };

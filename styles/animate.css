@@ -15,7 +15,7 @@
   --animation-duration: 500ms;
 }
 
-.fade-in {
+.animate {
   animation: fade-in var(--animation-duration) ease-out both
     calc(var(--i) * var(--animation-delay));
 }
