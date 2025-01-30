@@ -20,11 +20,12 @@
     "@11ty/eleventy": "^3.0.0",
     "@11ty/eleventy-plugin-rss": "^2.0.3",
     "@shopify/prettier-plugin-liquid": "^1.7.0",
+    "eleventy-plugin-youtube-embed": "^1.11.0",
     "highlight.js": "^11.11.1",
     "husky": "^9.1.7",
     "lint-staged": "^15.4.2",
-    "markdown-it": "^14.1.0",
     "markdown-it-footnote": "^4.0.0",
+    "markdown-it-implicit-figures": "^0.12.0",
     "node-html-parser": "^7.0.1",
     "prettier": "^3.4.2"
   }

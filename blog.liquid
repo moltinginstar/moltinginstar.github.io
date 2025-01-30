@@ -114,6 +114,16 @@ title: moltinginstar / blog
     margin-block-start: var(--paragraph-spacing);
   }
 
+  article aside {
+    border-radius: 0.5rem;
+    background-color: var(--color-surface);
+    padding: 1rem;
+  }
+
+  article figure img {
+    inline-size: 100%;
+  }
+
   article .heading {
     display: flex;
     flex-direction: column;
@@ -124,6 +134,8 @@ title: moltinginstar / blog
     font-size: 0.875rem;
     font-weight: 500;
     color: var(--color-text-muted);
+    -webkit-user-select: none;
+    user-select: none;
   }
 
   article .footnotes-list {
