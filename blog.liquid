@@ -46,6 +46,10 @@ title: moltinginstar / blog
     gap: 1.5rem;
   }
 
+  .nav-page {
+    text-transform: lowercase;
+  }
+
   .nav-link > a {
     text-decoration: none;
     color: var(--color-text-muted);
@@ -234,7 +238,8 @@ title: moltinginstar / blog
   <label for="nav-toggle" class="animate">☰</label>
 
   <div id="nav-content">
-    <div class="nav-link animate"><a href="/">home</a></div>
+    <div class="nav-link nav-page animate"><a href="/">Home</a></div>
+
     <div class="nav-divider animate"></div>
 
     {% for post in collections.blog reversed %}

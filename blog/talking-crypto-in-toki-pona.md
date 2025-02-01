@@ -1,5 +1,5 @@
 ---
-title: "Talking Crypto in Toki Pona"
+title: "Talking crypto in Toki Pona"
 date: 2025-01-13
 categories: [language]
 ---

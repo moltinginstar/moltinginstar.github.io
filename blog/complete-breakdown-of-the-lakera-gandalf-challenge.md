@@ -1,5 +1,5 @@
 ---
-title: "Complete Breakdown of the Lakera Gandalf Challenge"
+title: "Complete breakdown of the Lakera Gandalf challenge"
 date: 2023-07-01
 categories: [ai, programming]
 ---
