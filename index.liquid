@@ -8,7 +8,7 @@ title: moltinginstar / home
   body {
     max-inline-size: 80ch;
     margin: 0 auto;
-    padding: 8vh 6vw;
+    padding: max(1rem, 8vh) max(1rem, 6vw) max(4rem, 8vh);
     display: flex;
     flex-direction: column;
   }
@@ -17,15 +17,20 @@ title: moltinginstar / home
     display: flex;
     justify-content: flex-end;
     flex-wrap: wrap;
-    gap: 0.25rem clamp(1rem, 4vw, 3rem);
-    margin-block-end: 8vh;
+    gap: 0.25rem clamp(1.5rem, 4vw, 4rem);
+    margin-block: 1rem 4rem;
     -webkit-user-select: none;
     user-select: none;
   }
 
   @media screen and (max-width: 1024px) {
+    body {
+      padding-block: 1rem 4rem;
+    }
+
     nav {
       justify-content: center;
+      margin-block: max(1rem, 4vw) 4rem;
     }
   }
 
