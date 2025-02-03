@@ -1,3 +1,4 @@
+import { animate } from "./plugins/animate.js";
 import { cacheBuster } from "./plugins/cache.js";
 import {
   mdFootnotes,
@@ -6,7 +7,7 @@ import {
   mdYoutubeEmbed,
   mdImplicitFigures,
 } from "./plugins/markdown.js";
-import { animate } from "./plugins/animate.js";
+import { rssFeed } from "./plugins/feed.js";
 
 export default (eleventyConfig) => {
   eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
@@ -26,4 +27,6 @@ export default (eleventyConfig) => {
   eleventyConfig.addPlugin(mdLinksInNewTab);
   eleventyConfig.addPlugin(mdYoutubeEmbed);
   eleventyConfig.addPlugin(mdImplicitFigures);
+
+  eleventyConfig.addPlugin(rssFeed);
 };
