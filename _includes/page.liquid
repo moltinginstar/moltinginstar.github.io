@@ -24,6 +24,13 @@
 
     <link rel="stylesheet" href="{{ '/styles/base.css' | url | bust }}">
 
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      href="{{ '/feed.xml' | url }}"
+      title="RSS"
+    >
+
     {% block head %}
     {% endblock %}
   </head>
