@@ -19,3 +19,9 @@
   animation: fade-in var(--animation-duration) ease-out both
     calc(var(--i) * var(--animation-delay));
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate {
+    animation: none;
+  }
+}
