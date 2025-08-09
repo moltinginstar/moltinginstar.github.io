@@ -79,15 +79,17 @@ parseInt(null, 36)
 > 1112745
 ```
 
-Not so perfect after all.
+Not so nice after all, but nothing strong typing can’t fix. In TypeScript, `parseInt` expects a string as its first argument, so the previous example would have thrown a compile-time error.
 
-In fact, `parseInt` has another quirk where it stops parsing as soon as it reaches the first invalid character of its argument. However, instead of returning `NaN`, it parses the (valid) prefix and returns its value:
+However, `parseInt` has another quirk where it stops parsing as soon as it reaches the first invalid character of its argument, but instead of returning `NaN`, it parses the (valid) prefix and returns its value:
 
 ```jsx
 parseInt("12345thisisnotadecimalinteger")
 > 12345
 ```
 
-This feature makes it straightforward to extract the numeric value of a quantity like `42px` and `100%` (e.g., `"42px"` → `42`) but can be surprising if you’re unfamiliar with it. I’ve never seen either of these behaviors cause real bugs, but they’re worth keeping in mind.
+This feature makes it straightforward to extract the numeric value of a quantity like `42px` and `100%` (e.g., `"42px"` → `42`) but can be surprising if you’re unfamiliar with it, and it’s not something TypeScript catches by default. (It could in theory, with [template literal types](https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html).)
 
-The [MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript) are a fantastic resource for learning about such pitfalls, but realistically you can’t memorize everything. TypeScript can help with type safety; the first case would have thrown a compile-time error because `parseInt` expects a string. For everything else, test and verify.
+I’ve never seen either of these behaviors cause real bugs, but they’re worth keeping in mind. The [MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript) are a fantastic resource for learning about such pitfalls—JavaScript is full of them. Even if you can’t memorize everything, a quick skim through the docs will give you a sense of what to expect.
+
+Bottom line: it’s always a good idea to read the docs and test any edge cases yourself. The upfront investment can save you from the headache of chasing bizarre logic errors in production later.
