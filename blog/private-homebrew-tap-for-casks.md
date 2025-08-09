@@ -89,43 +89,43 @@ Homebrew can handle different types of URLs through its various built-in downloa
 class DownloadStrategyDetector
   ...
 
-	def self.detect_from_url(url)
-	  case url
-	    when GitHubPackages::URL_REGEX
-	      CurlGitHubPackagesDownloadStrategy
-	    when %r{^https?://github\.com/[^/]+/[^/]+\.git$}
-	      GitHubGitDownloadStrategy
-	    when %r{^https?://.+\.git$},
-	         %r{^git://},
-	         %r{^https?://git\.sr\.ht/[^/]+/[^/]+$},
-	         %r{^ssh://git}
-	      GitDownloadStrategy
-	    when %r{^https?://www\.apache\.org/dyn/closer\.cgi},
-	         %r{^https?://www\.apache\.org/dyn/closer\.lua}
-	      CurlApacheMirrorDownloadStrategy
-	    when %r{^https?://([A-Za-z0-9\-.]+\.)?googlecode\.com/svn},
-	         %r{^https?://svn\.},
-	         %r{^svn://},
-	         %r{^svn\+http://},
-	         %r{^http://svn\.apache\.org/repos/},
-	         %r{^https?://([A-Za-z0-9\-.]+\.)?sourceforge\.net/svnroot/}
-	      SubversionDownloadStrategy
-	    when %r{^cvs://}
-	      CVSDownloadStrategy
-	    when %r{^hg://},
-	         %r{^https?://([A-Za-z0-9\-.]+\.)?googlecode\.com/hg},
-	         %r{^https?://([A-Za-z0-9\-.]+\.)?sourceforge\.net/hgweb/}
-	      MercurialDownloadStrategy
-	    when %r{^bzr://}
-	      BazaarDownloadStrategy
-	    when %r{^fossil://}
-	      FossilDownloadStrategy
-	    else
-	      CurlDownloadStrategy
-	    end
-	  end
+  def self.detect_from_url(url)
+    case url
+      when GitHubPackages::URL_REGEX
+        CurlGitHubPackagesDownloadStrategy
+      when %r{^https?://github\.com/[^/]+/[^/]+\.git$}
+        GitHubGitDownloadStrategy
+      when %r{^https?://.+\.git$},
+           %r{^git://},
+           %r{^https?://git\.sr\.ht/[^/]+/[^/]+$},
+           %r{^ssh://git}
+        GitDownloadStrategy
+      when %r{^https?://www\.apache\.org/dyn/closer\.cgi},
+           %r{^https?://www\.apache\.org/dyn/closer\.lua}
+        CurlApacheMirrorDownloadStrategy
+      when %r{^https?://([A-Za-z0-9\-.]+\.)?googlecode\.com/svn},
+           %r{^https?://svn\.},
+           %r{^svn://},
+           %r{^svn\+http://},
+           %r{^http://svn\.apache\.org/repos/},
+           %r{^https?://([A-Za-z0-9\-.]+\.)?sourceforge\.net/svnroot/}
+        SubversionDownloadStrategy
+      when %r{^cvs://}
+        CVSDownloadStrategy
+      when %r{^hg://},
+           %r{^https?://([A-Za-z0-9\-.]+\.)?googlecode\.com/hg},
+           %r{^https?://([A-Za-z0-9\-.]+\.)?sourceforge\.net/hgweb/}
+        MercurialDownloadStrategy
+      when %r{^bzr://}
+        BazaarDownloadStrategy
+      when %r{^fossil://}
+        FossilDownloadStrategy
+      else
+        CurlDownloadStrategy
+      end
+    end
 
-	  ...
+  ...
 end
 ```
 
@@ -236,17 +236,17 @@ After combing the Homebrew codebase and documentation for clues, I found the sol
 module GitHub
   ...
 
-	def self.credentials
-	  @credentials ||= T.let(nil, T.nilable(String))
-	  # 1. HOMEBREW_GITHUB_API_TOKEN or
-	  @credentials ||= Homebrew::EnvConfig.github_api_token.presence
-	  # 2. gh auth token or
-	  @credentials ||= github_cli_token
-	  # 3. git-credential-osxkeychain
-	  @credentials ||= keychain_username_password
-	end
+  def self.credentials
+    @credentials ||= T.let(nil, T.nilable(String))
+    # 1. HOMEBREW_GITHUB_API_TOKEN or
+    @credentials ||= Homebrew::EnvConfig.github_api_token.presence
+    # 2. gh auth token or
+    @credentials ||= github_cli_token
+    # 3. git-credential-osxkeychain
+    @credentials ||= keychain_username_password
+  end
 
-	...
+  ...
 end
 ```
 
