@@ -285,7 +285,7 @@ class AuthenticatedGitHubGitDownloadStrategy_ < GitHubGitDownloadStrategy
   end
 end
 
-# Duplicates the implementation but doesn't leak the token
+# Duplicates some code but doesn't leak the token
 class AuthenticatedGitHubGitDownloadStrategy < GitHubGitDownloadStrategy
   include AuthenticatedGitHubUrl
 
