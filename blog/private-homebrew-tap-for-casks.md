@@ -149,7 +149,7 @@ cask "font-fonty-mcfontface" do
 end
 ```
 
-It turns out you can also pass a class name directly, and if you specify a custom class via an import, Homebrew will download it first and execute it the same way as any of the bundled strategies:
+It turns out you can also pass a class name directly, and if you specify a custom class via an import, Homebrew will execute it the same way as any of the bundled strategies:
 
 ```ruby
 require_relative "../lib/download_strategy"
@@ -169,13 +169,13 @@ An obvious thing to try, then, is to extend the built-in GitHub strategy and add
 
 ```
 .
-├── Fonty McFontFace
+├── Fonty McFontface
 │   ├── LICENSE.pdf
-│   ├── FontyMcFontFace-Black.otf
-│   ├── FontyMcFontFace-Bold.otf
-│   ├── FontyMcFontFace-Medium.otf
-│   ├── FontyMcFontFace-Regular.otf
-│   └── FontyMcFontFace-Thin.otf
+│   ├── FontyMcFontface-Black.otf
+│   ├── FontyMcFontface-Bold.otf
+│   ├── FontyMcFontface-Medium.otf
+│   ├── FontyMcFontface-Regular.otf
+│   └── FontyMcFontface-Thin.otf
 ├── ...
 ├── Roboto
 │   ├── LICENSE.pdf
@@ -339,15 +339,15 @@ cask "font-fonty-mcfontface" do
   url "https://github.com/moltinginstar/fonts.git",
     using: AuthenticatedGitHubGitDownloadStrategy,
     branch: "main",
-    only_path: "Fonty McFontFace"
-  name "Fonty McFontFace"
+    only_path: "Fonty McFontface"
+  name "Fonty McFontface"
   homepage "https://type-foundry.example.com/fonty-mcfontface"
 
-  font "FontyMcFontFace-Black.otf"
-  font "FontyMcFontFace-Bold.otf"
-  font "FontyMcFontFace-Medium.otf"
-  font "FontyMcFontFace-Regular.otf"
-  font "FontyMcFontFace-Thin.otf"
+  font "FontyMcFontface-Black.otf"
+  font "FontyMcFontface-Bold.otf"
+  font "FontyMcFontface-Medium.otf"
+  font "FontyMcFontface-Regular.otf"
+  font "FontyMcFontface-Thin.otf"
 end
 ```
 
@@ -358,7 +358,7 @@ end
   </figcaption>
 </figure>
 
-If you now run `gh auth login` followed by `brew install`, Homebrew will pick up the saved GitHub token automatically and voilà, Fonty McFontFace is yours.
+If you now run `gh auth login` followed by `brew install`, Homebrew will pick up the saved GitHub token automatically and voilà, Fonty McFontface is yours.
 
 ## Fixing `brew upgrade`
 
