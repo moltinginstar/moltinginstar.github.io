@@ -52,7 +52,7 @@ body {
   gap: var(--nav-items-gap);
 }
 
-.nav-link {
+.nav-item {
   text-transform: lowercase;
 }
 
@@ -86,16 +86,22 @@ body {
 
 .nav-item .tags {
   font-size: 0.75rem;
-  color: var(--color-text-muted);
 }
 
 .tag {
   font-weight: 500;
   text-transform: lowercase;
+  text-decoration: none;
+  color: var(--color-text-muted);
 }
 
 .tag::before {
   content: "#";
+}
+
+.tag:hover {
+  text-decoration: underline;
+  color: var(--color-text);
 }
 
 main {
@@ -194,7 +200,6 @@ article .footnotes-list .footnote-item > *:first-of-type {
 
 #navigation {
   flex: 0 0 auto;
-  inline-size: var(--main-inline-size);
   margin-block-start: 6rem;
   max-inline-size: 100%;
   -webkit-user-select: none;

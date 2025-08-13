@@ -1,9 +1,10 @@
 ---
 title: Samblings
 pagination:
-  data: collections.blog
-  size: 20
-  reverse: true
+  data: collections.blogPostsByCategory
+  size: 1
+  alias: postsPage
+permalink: "/blog{% if postsPage.category != 'all' %}/tag/{{ postsPage.category | url }}{% endif %}{% if postsPage.pageNumber > 1 %}/page/{{ postsPage.pageNumber }}{% endif %}/"
 ---
 {% layout "page.liquid" %}
 
@@ -13,6 +14,16 @@ pagination:
 <style>
   .nav-links {
     margin-block-start: var(--header-offset);
+  }
+
+  .nav-tags {
+    display: flex;
+    flex-direction: column;
+    gap: var(--nav-items-gap);
+  }
+
+  .nav-tag > .tag {
+    font-weight: inherit;
   }
 
   #content {
@@ -110,6 +121,32 @@ pagination:
 
       <div class="nav-item nav-link animate"><a href="/haiku">Haiku</a></div>
     </div>
+
+    <div class="nav-tags">
+      <div class="nav-item nav-tag animate">
+        <a
+          href="/blog"
+          {% if postsPage.category == "all" %}
+            aria-current="true"
+          {% endif %}
+          >All</a
+        >
+      </div>
+
+      {% for category in collections.blogCategories %}
+        <div class="nav-item nav-tag animate">
+          <a
+            class="tag"
+            href="/blog/tag/{{ category | url }}"
+            {% if postsPage.category == category %}
+              aria-current="true"
+            {% endif %}
+          >
+            {{- category -}}
+          </a>
+        </div>
+      {% endfor %}
+    </div>
   </div>
 </nav>
 
@@ -121,7 +158,7 @@ pagination:
   </header>
 
   <div id="content">
-    {% for post in pagination.items %}
+    {% for post in postsPage.items %}
       <article id="article-{{ post.fileSlug }}">
         <div class="heading">
           <p class="date">{{ post.date | date: "%b %-d, %Y" }}</p>
@@ -132,7 +169,12 @@ pagination:
 
           <p class="tags">
             {% for category in post.data.categories %}
-              <span class="tag">{{ category }}</span>
+              <a
+                class="tag"
+                href="/blog/tag/{{ category | url }}"
+              >
+                {{- category -}}
+              </a>
             {% endfor %}
           </p>
         </div>
@@ -150,15 +192,16 @@ pagination:
   </div>
 
   <nav id="navigation">
-    {% if pagination.totalPages > 1 %}
-      {% assign currentPage = pagination.pageNumber %}
+    {% if postsPage.totalPages > 1 %}
+      {% assign currentPageNumber = postsPage.pageNumber %}
       {% assign windowSize = 2 %}
 
-      {%- for pageEntry in pagination.pages -%}
+      {%- for _ in (1..postsPage.totalPages) -%}
         {% assign i = forloop.index0 %}
+        {% assign pageNumber = forloop.index -%}
 
-        {% assign windowStart = currentPage | minus: windowSize %}
-        {% assign windowEnd = currentPage | plus: windowSize %}
+        {% assign windowStart = currentPageNumber | minus: windowSize %}
+        {% assign windowEnd = currentPageNumber | plus: windowSize %}
 
         {%
           assign showPage = forloop.first
@@ -168,22 +211,44 @@ pagination:
         %}
 
         {% if showPage %}
-          {% assign previousPage = i | minus: 1 %}
-          {% if i > 0 and previousShownPage != previousPage %}
+          {% assign prevPage = i | minus: 1 %}
+          {% if i > 0 and prevShownPage != prevPage %}
             <span class="page">&middot;&middot;&middot;</span>
+          {% endif %}
+
+          {% assign pageUrl = "/blog" %}
+          {% if postsPage.category != "all" %}
+            {% assign pageUrl = pageUrl
+              | append: "/tag/"
+              | append: postsPage.category
+              | url
+            %}
+          {% endif %}
+          {% assign currentPageUrl = pageUrl %}
+          {% if pageNumber > 1 %}
+            {% assign pageUrl = pageUrl
+              | append: "/page/"
+              | append: pageNumber
+            %}
+          {% endif %}
+          {% if currentPageNumber > 1 %}
+            {% assign currentPageUrl = currentPageUrl
+              | append: "/page/"
+              | append: currentPageNumber
+            %}
           {% endif %}
 
           <a
             class="page active"
-            href="{{ pagination.hrefs[i] }}"
-            {% if page.url == pagination.hrefs[i] %}
+            href="{{ pageUrl }}"
+            {% if pageUrl == currentPageUrl %}
               aria-current="page"
             {% endif %}
           >
-            {{- forloop.index -}}
+            {{- pageNumber -}}
           </a>
 
-          {% assign previousShownPage = i %}
+          {% assign prevShownPage = i %}
         {% endif %}
       {%- endfor -%}
     {% endif %}

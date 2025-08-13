@@ -9,6 +9,7 @@ eleventyComputed:
 
 <style>
   #navigation {
+    inline-size: var(--main-inline-size);
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "prev next";
@@ -100,7 +101,12 @@ eleventyComputed:
           >
           <p class="tags">
             {% for category in post.data.categories %}
-              <span class="tag">{{ category }}</span>
+              <a
+                class="tag"
+                href="/blog/tag/{{ category | url }}"
+              >
+                {{- category -}}
+              </a>
             {% endfor %}
           </p>
         </div>

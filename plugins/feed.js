@@ -3,7 +3,7 @@ import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 export const rssFeed = (eleventyConfig) => {
   eleventyConfig.addPlugin(feedPlugin, {
     type: "rss",
-    outputPath: "/feed.xml",
+    outputPath: "/blog/feed.xml",
     collection: {
       name: "blog",
       limit: 0,
