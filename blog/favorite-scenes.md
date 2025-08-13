@@ -26,6 +26,6 @@ To sum up, if you can’t resist the temptation of using a cool-sounding apocryp
 
 [^1]: Guugu Yimithirr is also known for using [absolute spatial terms](https://www.researchgate.net/publication/227639581_Guugu_Yimithirr_Cardinal_Directions) (north, south, etc.) to the exclusion of body-relative directions (left, right, etc.), which apparently gives its speakers exceptional spatial awareness.
 
-[^2]: I wouldn’t say no to higher standards for historical and factual accuracy in movies, however. [Too many a biopic](#historical-accuracy-in-movies) has bent the truth for cheap tears and profit.
+[^2]: I wouldn’t say no to higher standards for historical and factual accuracy in movies, however. [Too many a biopic](./historical-accuracy-in-movies.md) has bent the truth for cheap tears and profit.
 
 [^3]: For example, whether violent video games should be allowed to exist if there’s a possibility that they lead to real-life violence.

@@ -10,7 +10,7 @@
       href="{{ '/public/favicon.ico' | url | bust }}"
     >
 
-    <title>{{ title }}</title>
+    <title>{{ pageTitle | default: title }}</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

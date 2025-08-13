@@ -1,0 +1,177 @@
+---
+eleventyComputed:
+  pageTitle: "Samblings / {{ title }}"
+---
+{% layout "page.liquid" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ '/styles/blog.css' | url | bust }}">
+
+<style>
+  #navigation {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "prev next";
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .navigation-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-inline-size: 0;
+  }
+
+  .navigation-link-icon {
+    color: var(--color-text-muted);
+    flex: 0 0 auto;
+  }
+
+  .navigation-link-title {
+    display: -webkit-inline-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    color: var(--color-text-muted);
+    flex: 1;
+  }
+
+  .navigation-link:hover .navigation-link-icon {
+    color: var(--color-text);
+  }
+
+  .navigation-link:hover .navigation-link-title {
+    text-decoration: underline;
+    color: var(--color-text);
+  }
+
+  .navigation-link:hover + #navigation-prev-icon {
+    color: var(--color-text);
+  }
+
+  #navigation-prev {
+    grid-area: prev;
+    text-align: start;
+  }
+
+  #navigation-next {
+    grid-area: next;
+    text-align: end;
+  }
+</style>
+
+<link rel="stylesheet" href="{{ '/styles/animate.css' | url | bust }}">
+
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/@highlightjs/cdn-assets@11.11.1/styles/github.min.css"
+  media="(prefers-color-scheme: light)"
+>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/@highlightjs/cdn-assets@11.11.1/styles/github-dark.min.css"
+  media="(prefers-color-scheme: dark)"
+>
+{% endblock %}
+
+{% block body %}
+<nav id="nav">
+  <input id="nav-toggle" type="checkbox">
+  <label for="nav-toggle" class="animate">☰</label>
+
+  <div id="nav-content">
+    <div class="nav-links">
+      <div class="nav-item nav-link animate"><a href="/blog">Back</a></div>
+    </div>
+
+    <div class="nav-pages">
+      {% for post in collections.blog reversed %}
+        <div class="nav-item nav-page animate">
+          <a
+            href="{{ post.url | url }}"
+            {% if post.url == page.url %}
+              aria-current="page"
+            {% endif %}
+            ><span class="date">{{ post.date | date: "%b %-d, %Y" }}</span
+            >&nbsp;—&nbsp;<span class="title">{{ post.data.title }}</span></a
+          >
+          <p class="tags">
+            {% for category in post.data.categories %}
+              <span class="tag">{{ category }}</span>
+            {% endfor %}
+          </p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</nav>
+
+<main class="animate" style="--i: 3">
+  <header>
+    <span class="logo" aria-label="Samblings" title="Samblings"
+      >Sambl–·ngs</span
+    >
+  </header>
+
+  <div id="content">
+    <article id="article-{{ page.fileSlug }}">
+      <div class="heading">
+        <p class="date">{{ date | date: "%b %-d, %Y" }}</p>
+
+        <h1>{{ title }}</h1>
+      </div>
+
+      {{ content }}
+    </article>
+  </div>
+
+  <div id="navigation">
+    {% assign posts = collections.blog | reverse %}
+    {% for post in posts %}
+      {% if post.url == page.url %}
+        {% assign prev = forloop.index0 | minus: 1 %}
+        {% assign next = forloop.index0 | plus: 1 %}
+
+        {% if prev >= 0 %}
+          {% assign prevPost = posts[prev] %}
+        {% endif %}
+
+        {% if next < posts.size %}
+          {% assign nextPost = posts[next] %}
+        {% endif %}
+
+        {% break %}
+      {% endif %}
+    {% endfor %}
+
+    {% if prevPost %}
+      <div id="navigatio-prev" class="navigation-link">
+        <span class="navigation-link-icon">←</span>
+
+        <a class="navigation-link-title" href="{{ prevPost.url | url }}">
+          {{- prevPost.data.title -}}
+        </a>
+      </div>
+    {% endif %}
+
+    {% if nextPost %}
+      <div id="navigation-next" class="navigation-link">
+        <a class="navigation-link-title" href="{{ nextPost.url | url }}">
+          {{- nextPost.data.title -}}
+        </a>
+
+        <span class="navigation-link-icon">→</span>
+      </div>
+    {% endif %}
+  </div>
+
+  <footer>
+    <p>
+      &copy;&nbsp;{{ "now" | date: "%Y" }} moltinginstar. All rights reserved.
+    </p>
+  </footer>
+</main>
+{% endblock %}

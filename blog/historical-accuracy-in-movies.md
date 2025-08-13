@@ -25,7 +25,7 @@ It’s for this reason that *The Imitation Game* failed to resonate with me. To 
 While I would generally insist that almost any deviation from the facts is unacceptable in a biographical drama, I’d be willing to settle for a weaker claim. Two claims, to be precise:
 
 1. Artistic license in a biographical film’s reproduction of the events or characters is harmful when it fundamentally alters how they’re perceived.
-2. The deliberate or accidental misrepresentation of historical or scientific facts is [always wrong](#favorite-scenes), in any work of fiction.
+2. The deliberate or accidental misrepresentation of historical or scientific facts is [always wrong](./favorite-scenes.md), in any work of fiction.
 
 For instance, in one of the [most memorable scenes](https://www.youtube.com/watch?v=JIad8SAv1zg) of the movie, Turing’s team decides to sacrifice codebreaker [Peter Hilton](https://en.wikipedia.org/wiki/Peter_Hilton)’s (fictional) brother to keep their success in breaking the Nazi code a secret. Heartwrenching? Yes. Completely fabricated? Of course. But it’s a largely irrelevant detail and therefore passes the first test, if only by a whisker.
 

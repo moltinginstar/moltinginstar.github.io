@@ -1,5 +1,6 @@
 import { animate } from "./plugins/animate.js";
 import { cacheBuster } from "./plugins/cache.js";
+import { imageTransform } from "./plugins/image.js";
 import {
   mdFootnotes,
   mdCodeHighlighting,
@@ -8,6 +9,7 @@ import {
   mdImplicitFigures,
 } from "./plugins/markdown.js";
 import { rssFeed } from "./plugins/feed.js";
+import { pathToUrlTransform } from "./plugins/paths.js";
 
 export default (eleventyConfig) => {
   eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
@@ -16,11 +18,15 @@ export default (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("fonts");
   eleventyConfig.addPassthroughCopy("public");
-  eleventyConfig.addPassthroughCopy("blog/assets");
+  eleventyConfig.addPassthroughCopy("blog/*/assets/*", {
+    mode: "html-relative",
+  });
 
   eleventyConfig.addPlugin(animate);
 
   eleventyConfig.addPlugin(cacheBuster);
+
+  eleventyConfig.addPlugin(imageTransform);
 
   eleventyConfig.addPlugin(mdFootnotes);
   eleventyConfig.addPlugin(mdCodeHighlighting);
@@ -29,4 +35,6 @@ export default (eleventyConfig) => {
   eleventyConfig.addPlugin(mdImplicitFigures);
 
   eleventyConfig.addPlugin(rssFeed);
+
+  eleventyConfig.addPlugin(pathToUrlTransform);
 };

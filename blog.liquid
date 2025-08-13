@@ -1,223 +1,82 @@
 ---
-title: moltinginstar / blog
+title: Samblings
+pagination:
+  data: collections.blog
+  size: 20
+  reverse: true
 ---
 {% layout "page.liquid" %}
 
 {% block head %}
+<link rel="stylesheet" href="{{ '/styles/blog.css' | url | bust }}">
+
 <style>
-  :root {
-    --padding-block: clamp(1rem, 8vh, 4rem);
-    --padding-inline: clamp(1rem, 6vw, 4rem);
-  }
-
-  html {
-    overflow-y: hidden;
-  }
-
-  body {
-    display: flex;
-    block-size: 100vh;
-    box-sizing: border-box;
-    font-size: 0.875rem;
-  }
-
-  #nav {
-    flex: 0 0 32ch;
-    font-size: 0.875rem;
-    padding-block: var(--padding-block);
-    padding-inline: var(--padding-inline) 2rem;
-    overflow-y: auto;
-    -webkit-user-select: none;
-    user-select: none;
-  }
-
-  #nav-toggle {
-    display: none;
-  }
-
-  #nav-toggle + label {
-    display: none;
-    cursor: pointer;
-  }
-
-  #nav-content {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .nav-page {
-    text-transform: lowercase;
-  }
-
-  .nav-link > a {
-    text-decoration: none;
-    color: var(--color-text-muted);
-  }
-
-  .nav-link > a:hover {
-    text-decoration: underline;
-    color: inherit;
-  }
-
-  .nav-link .date {
-    color: var(--color-text);
-  }
-
-  .nav-link .title {
-    font-style: italic;
-  }
-
-  .nav-link .tags {
-    font-size: 0.75rem;
-    color: var(--color-text-muted);
-  }
-
-  .tag {
-    font-weight: 500;
-    text-transform: lowercase;
-  }
-
-  .tag::before {
-    content: "#";
-  }
-
-  main {
-    flex: 1 0 0;
-    padding-block: var(--padding-block) 2rem;
-    padding-inline: 2rem var(--padding-inline);
-    overflow-y: auto;
-    scroll-behavior: smooth;
-    scroll-padding-block-start: var(--padding-block);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8rem;
+  .nav-links {
+    margin-block-start: var(--header-offset);
   }
 
   #content {
-    inline-size: min(80ch, 100%);
-    display: flex;
-    flex-direction: column;
-    gap: 6rem;
+    gap: 3rem;
   }
 
-  article {
-    --paragraph-spacing: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: var(--paragraph-spacing);
-    overflow-wrap: break-word;
+  article .heading .title {
+    text-decoration: none;
+    color: var(--color-text);
   }
 
-  article li + li {
-    margin-block-start: var(--paragraph-spacing);
+  article .heading .title:hover {
+    text-decoration: underline;
   }
 
-  article li > * + * {
-    margin-block-start: var(--paragraph-spacing);
-  }
-
-  article aside {
-    border-radius: 0.5rem;
-    background-color: var(--color-surface);
-    padding: 1rem;
-  }
-
-  article figure img {
-    inline-size: 100%;
-  }
-
-  article figure figcaption {
-    margin-block-start: 0.5rem;
-  }
-
-  article .heading {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  article .heading .date {
+  article .heading .tags {
     font-size: 0.875rem;
+    color: var(--color-text-muted);
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  article .read-more {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    -webkit-user-select: none;
+    user-select: none;
+    align-self: flex-end;
+  }
+
+  article .read-more:hover {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  #navigation {
+    display: flex;
+    overflow-x: auto;
+    font-size: 1rem;
+    margin-inline: auto;
+  }
+
+  #navigation .page {
+    flex: 0 0 2ch;
+    padding: 0.5rem;
     font-weight: 500;
     color: var(--color-text-muted);
-    -webkit-user-select: none;
-    user-select: none;
-  }
-
-  article .footnotes-list {
-    list-style-position: inside;
-    padding-inline-start: 0;
-  }
-
-  article .footnotes-list .footnote-item > *:first-of-type {
-    display: inline;
-  }
-
-  footer {
-    color: var(--color-text-muted);
+    text-decoration: none;
     text-align: center;
-    -webkit-user-select: none;
-    user-select: none;
   }
 
-  table {
-    display: block;
-    border-collapse: collapse;
-    inline-size: 100%;
-    overflow-x: auto;
+  #navigation .page.active:hover {
+    color: var(--color-text);
+    text-decoration: underline;
   }
 
-  th,
-  td {
-    padding: 0.5rem;
-    border: 0.1px solid var(--color-text);
-  }
-
-  th {
-    text-align: start;
-    font-weight: 400;
-    background-color: var(--color-surface);
-  }
-
-  pre code.hljs {
-    border-radius: 0.5rem;
-    background-color: var(--color-surface);
+  #navigation .page[aria-current] {
+    color: var(--color-text);
+    font-weight: 600;
   }
 
   @media screen and (max-width: 768px) {
-    body {
-      flex-direction: column;
-      gap: 2rem;
-      overflow-y: auto;
-      scroll-behavior: smooth;
-      scroll-padding-block-start: var(--padding-inline);
-    }
-
-    #nav {
-      flex: 0 0 auto;
-      overflow-y: unset;
-      padding-block: var(--padding-inline);
-      padding-inline: var(--padding-inline);
-    }
-
-    #nav-toggle + label {
-      display: block;
-    }
-
-    #nav-toggle:checked + label {
-      margin-block-end: 3rem;
-    }
-
-    #nav-toggle:not(:checked) + label + #nav-content {
-      display: none;
-    }
-
-    main {
-      overflow-y: unset;
-      padding-block: var(--padding-inline);
-      padding-inline: var(--padding-inline);
+    .nav-links {
+      margin-block-start: unset;
     }
   }
 </style>
@@ -242,40 +101,93 @@ title: moltinginstar / blog
   <label for="nav-toggle" class="animate">☰</label>
 
   <div id="nav-content">
-    <div class="nav-link nav-page animate"><a href="/">Home</a></div>
+    <div class="nav-links">
+      <div class="nav-item nav-link animate"><a href="/">About</a></div>
 
-    <div class="nav-divider animate"></div>
-
-    {% for post in collections.blog reversed %}
-      <div class="nav-link animate">
-        <a href="#{{ post.fileSlug }}"
-          ><span class="date">{{ post.date | date: "%b %-d, %Y" }}</span
-          >&nbsp;—&nbsp;<span class="title">{{ post.data.title }}</span></a
-        >
-        <p class="tags">
-          {% for category in post.data.categories %}
-            <span class="tag">{{ category }}</span>
-          {% endfor %}
-        </p>
+      <div class="nav-item nav-link animate">
+        <a href="https://github.com/moltinginstar">GitHub</a>
       </div>
-    {% endfor %}
+
+      <div class="nav-item nav-link animate"><a href="/haiku">Haiku</a></div>
+    </div>
   </div>
 </nav>
 
 <main class="animate" style="--i: 3">
+  <header>
+    <span class="logo" aria-label="Samblings" title="Samblings"
+      >Sambl–·ngs</span
+    >
+  </header>
+
   <div id="content">
-    {% for post in collections.blog reversed %}
-      <article id="{{ post.fileSlug }}">
+    {% for post in pagination.items %}
+      <article id="article-{{ post.fileSlug }}">
         <div class="heading">
           <p class="date">{{ post.date | date: "%b %-d, %Y" }}</p>
 
-          <h1>{{ post.data.title }}</h1>
+          <a class="title" href="{{ post.url | url }}">
+            <h1>{{ post.data.title }}</h1>
+          </a>
+
+          <p class="tags">
+            {% for category in post.data.categories %}
+              <span class="tag">{{ category }}</span>
+            {% endfor %}
+          </p>
         </div>
 
-        {{ post.content }}
+        {{-
+          post.content
+          | strip_html
+          | strip
+          | truncatewords: 50, "&nbsp;..."
+        -}}
+
+        <a class="read-more" href="{{ post.url | url }}">Read more →</a>
       </article>
     {% endfor %}
   </div>
+
+  <nav id="navigation">
+    {% if pagination.totalPages > 1 %}
+      {% assign currentPage = pagination.pageNumber %}
+      {% assign windowSize = 2 %}
+
+      {%- for pageEntry in pagination.pages -%}
+        {% assign i = forloop.index0 %}
+
+        {% assign windowStart = currentPage | minus: windowSize %}
+        {% assign windowEnd = currentPage | plus: windowSize %}
+
+        {%
+          assign showPage = forloop.first
+          or forloop.last
+          or i >= windowStart
+          and i <= windowEnd
+        %}
+
+        {% if showPage %}
+          {% assign previousPage = i | minus: 1 %}
+          {% if i > 0 and previousShownPage != previousPage %}
+            <span class="page">&middot;&middot;&middot;</span>
+          {% endif %}
+
+          <a
+            class="page active"
+            href="{{ pagination.hrefs[i] }}"
+            {% if page.url == pagination.hrefs[i] %}
+              aria-current="page"
+            {% endif %}
+          >
+            {{- forloop.index -}}
+          </a>
+
+          {% assign previousShownPage = i %}
+        {% endif %}
+      {%- endfor -%}
+    {% endif %}
+  </nav>
 
   <footer>
     <p>

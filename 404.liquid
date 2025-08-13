@@ -1,0 +1,54 @@
+---
+title: 404
+permalink: 404.html
+---
+{% layout "page.liquid" %}
+
+{% block head %}
+<style>
+  body {
+    max-inline-size: 80ch;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    block-size: 100vh;
+  }
+
+  main {
+    flex: 1 0 auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 25vw, 15rem);
+    color: transparent;
+    -webkit-text-stroke: 1px var(--color-text-muted);
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  h1:hover {
+    color: inherit;
+    -webkit-text-stroke: 0;
+  }
+
+  h1 a {
+    text-decoration: none;
+    color: inherit;
+  }
+</style>
+{% endblock %}
+
+{% block body %}
+<main>
+  <h1>
+    <a href="/blog">{{ title }}</a>
+  </h1>
+</main>
+{% endblock %}
