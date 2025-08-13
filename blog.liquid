@@ -9,6 +9,11 @@ permalink: "/blog{% if postsPage.category != 'all' %}/tag/{{ postsPage.category 
 {% layout "page.liquid" %}
 
 {% block head %}
+<meta
+  name="description"
+  content="Scattered notes on whatever holds my attention. A blog about programming, languages, and life."
+>
+
 <link rel="stylesheet" href="{{ '/styles/blog.css' | url | bust }}">
 
 <style>
@@ -117,6 +122,10 @@ permalink: "/blog{% if postsPage.category != 'all' %}/tag/{{ postsPage.category 
 
   <div id="nav-content">
     <div class="nav-links">
+      <div class="nav-item nav-link animate">
+        <a href="{{ '/blog/feed.xml' | url }}">RSS</a>
+      </div>
+
       <div class="nav-item nav-link animate"><a href="/">About</a></div>
 
       <div class="nav-item nav-link animate">

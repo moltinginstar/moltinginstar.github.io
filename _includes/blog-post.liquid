@@ -5,6 +5,11 @@ eleventyComputed:
 {% layout "page.liquid" %}
 
 {% block head %}
+<meta
+  name="description"
+  content="Scattered notes on whatever holds my attention. A blog about programming, languages, and life."
+>
+
 <link rel="stylesheet" href="{{ '/styles/blog.css' | url | bust }}">
 
 <style>
