@@ -52,7 +52,7 @@ body {
   gap: var(--nav-items-gap);
 }
 
-.nav-item {
+.nav-link {
   text-transform: lowercase;
 }
 
