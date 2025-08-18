@@ -10,10 +10,6 @@
   --paragraph-spacing: 1rem;
 }
 
-html {
-  overflow-y: hidden;
-}
-
 body {
   display: flex;
   block-size: 100vh;
