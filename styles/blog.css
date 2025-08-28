@@ -109,7 +109,7 @@ body {
 
 main {
   flex: 1 0 0;
-  padding-block: 0 2rem;
+  padding-block-end: 2rem;
   padding-inline-end: var(--padding-inline);
   overflow-x: hidden;
   overflow-y: auto;
@@ -305,7 +305,7 @@ pre code.hljs {
     overflow-y: auto;
     scroll-behavior: smooth;
     scroll-padding-block-start: var(--padding-inline);
-    gap: 4rem;
+    gap: 2rem;
   }
 
   #nav {
@@ -346,6 +346,10 @@ pre code.hljs {
     overflow-y: unset;
     padding-block: var(--padding-inline);
     padding-inline: var(--padding-inline);
+  }
+
+  main > * {
+    padding-inline-end: 0;
   }
 
   header {
