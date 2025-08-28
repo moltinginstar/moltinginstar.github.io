@@ -118,7 +118,15 @@ permalink: "/blog{% if postsPage.category != 'all' %}/tag/{{ postsPage.category 
 {% block body %}
 <nav id="nav">
   <input id="nav-toggle" type="checkbox">
-  <label for="nav-toggle" class="animate">☰</label>
+  <label for="nav-toggle" class="animate"><span>☰</span></label>
+
+  <span
+    id="nav-logo"
+    class="logo animate"
+    aria-label="Samblings"
+    title="Samblings"
+    >Sambl–·ngs</span
+  >
 
   <div id="nav-content">
     <div class="nav-links">
