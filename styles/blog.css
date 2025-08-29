@@ -4,7 +4,11 @@
   --padding-inline: clamp(1rem, 6vw, 4rem);
   --body-gap: clamp(4rem, 6vw, 8rem);
   --nav-inline-size: 32ch;
-  --nav-total-inline-size: calc(var(--nav-inline-size) + var(--padding-inline));
+  --nav-padding-inline-end: 2rem;
+  --nav-total-inline-size: calc(
+    var(--nav-inline-size) + var(--padding-inline) +
+      var(--nav-padding-inline-end)
+  );
   --nav-font-size: 0.875rem;
   --nav-items-gap: 1.5rem;
   --header-offset: 4rem;
@@ -24,7 +28,7 @@ body {
   flex: 0 0 var(--nav-inline-size);
   font-size: var(--nav-font-size);
   padding-block: var(--header-block-size) var(--padding-inline);
-  padding-inline: var(--padding-inline) 2rem;
+  padding-inline: var(--padding-inline) var(--nav-padding-inline-end);
   overflow-y: auto;
   -webkit-user-select: none;
   user-select: none;
