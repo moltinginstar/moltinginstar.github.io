@@ -1,6 +1,6 @@
 :root {
   --main-inline-size: min(80ch, 100%);
-  --padding-block: clamp(1rem, 8vh, 4rem);
+  --header-block-size: 4rem;
   --padding-inline: clamp(1rem, 6vw, 4rem);
   --body-gap: clamp(4rem, 6vw, 8rem);
   --nav-inline-size: 32ch;
@@ -23,8 +23,8 @@ body {
 #nav {
   flex: 0 0 var(--nav-inline-size);
   font-size: var(--nav-font-size);
-  padding-block: var(--padding-block);
-  padding-inline-start: var(--padding-inline);
+  padding-block: var(--header-block-size) var(--padding-inline);
+  padding-inline: var(--padding-inline) 2rem;
   overflow-y: auto;
   -webkit-user-select: none;
   user-select: none;
@@ -114,7 +114,7 @@ main {
   overflow-x: hidden;
   overflow-y: auto;
   scroll-behavior: smooth;
-  scroll-padding-block-start: var(--padding-block);
+  scroll-padding-block-start: var(--header-block-size);
   display: flex;
   flex-direction: column;
 }
@@ -128,7 +128,7 @@ main > * {
 header {
   flex: 0 0 auto;
   inline-size: var(--main-inline-size);
-  block-size: var(--padding-block);
+  block-size: var(--header-block-size);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -314,7 +314,7 @@ pre code.hljs {
     padding-block: var(--padding-inline);
     padding-inline: var(--padding-inline);
     display: grid;
-    grid-template-columns: 2ch 1fr 2ch;
+    grid-template-columns: 2rem 1fr 2rem;
     grid-template-areas: "action logo ." "content content content";
     column-gap: 1rem;
   }
@@ -323,7 +323,6 @@ pre code.hljs {
     grid-area: action;
     display: flex;
     align-items: center;
-    justify-content: center;
   }
 
   #nav-toggle:not(:checked) ~ #nav-content {
