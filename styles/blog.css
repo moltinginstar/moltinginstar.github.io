@@ -21,7 +21,6 @@ body {
   block-size: 100vh;
   box-sizing: border-box;
   font-size: 0.875rem;
-  gap: var(--body-gap);
 }
 
 #nav {
@@ -114,7 +113,7 @@ body {
 main {
   flex: 1 0 0;
   padding-block-end: 2rem;
-  padding-inline-end: var(--padding-inline);
+  padding-inline: var(--body-gap) var(--padding-inline);
   overflow-x: hidden;
   overflow-y: auto;
   scroll-behavior: smooth;
